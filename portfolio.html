@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pragatheeswari R - Accountant Portfolio</title>
+    
+    <style>
+        /* --- Basic Setup --- */
+        :root {
+            --primary-color: #004a99; /* A professional blue */
+            --secondary-color: #f4f4f4; /* Light grey background */
+            --text-color: #333;
+            --header-bg: #2c3e50;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        /* --- Page Structure --- */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: var(--header-bg);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header #logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* --- Home/Hero Section --- */
+        #home {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1554224155-82f4b15154e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        #home p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* --- About Section --- */
+        #about .about-content {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        #about .about-content img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+        }
+
+        #about .about-content p {
+            font-size: 1.1rem;
+            flex: 1;
+        }
+
+        /* --- Experience & Education Section --- */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -42px; /* (30px padding + 3px border + 9px) */
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--white);
+            z-index: 1;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .timeline-item .company-place {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .date {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item ul {
+            margin-left: 20px;
+        }
+
+        /* --- Skills Section --- */
+        #skills .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        #skills .skill-item {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* --- Contact Section --- */
+        #contact .contact-methods {
+            text-align: center;
+        }
+
+        #contact .contact-item {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+        
+        #contact .contact-item strong {
+            color: var(--primary-color);
+        }
+        
+        #contact .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        #contact .btn:hover {
+            background-color: #003b7a;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--header-bg);
+            color: #aaa;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#home" id="logo">Pragatheeswari R</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Pragatheeswari R</h1>
+            <p>Detail-Oriented Accountant | Financial Reporting | Tax Compliance</p>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="card">
+                    <div class="about-content">
+                        <img src="[profile.jpg]" alt="Pragatheeswari R">
+                        <p>
+                            Highly motivated and detail-oriented Accountant with [Number] years of experience in financial management, 
+                            bookkeeping, and statutory compliance. Proven ability to manage ledgers, prepare financial statements, 
+                            and ensure accuracy in all financial records. 
+                            <br><br>
+                            Currently working at Solai Tex, contributing to the financial health of a dynamic textile environment. 
+                            Seeking to leverage my expertise in [Mention a specific skill, e.g., GST filing or Tally] to 
+                            support organizational growth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2>Work Experience</h2>
+                <div class="card">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>Accountant</h3>
+                            <div class="company-place">Solai Tex, Tiruppur</div>
+                            <div class="date">[Start Date, e.g., June 2021] – Present</div>
+                            <ul>
+                                <li>Manage and oversee daily accounting operations including accounts payable (AP), accounts receivable (AR), and general ledger.</li>
+                                <li>Prepare accurate monthly, quarterly, and annual financial statements and reports.</li>
+                                <li>Handle bank reconciliation statements and ensure all discrepancies are resolved.</li>
+                                <li>Assist in GST and TDS return filings, ensuring 100% compliance with statutory regulations.</li>
+                                <li>[Add another specific responsibility, e.g., Assisted with the annual audit process]</li>
+                            </ul>
+                        </div>
+                        
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="card">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>[Your Degree, e.g., Bachelor of Commerce (B.Com)]</h3>
+                            <div class="company-place">St. Joseph's College for Women, Tiruppur</div>
+                            <div class="date">[Start Year] – [End Year, e.g., 2018 - 2021]</div>
+                            <p>[Optional: Mention any academic honors, relevant projects, or a high score if desired, e.g., Graduated with First Class distinction.]</p>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>Professional Skills</h2>
+                <div class="card">
+                    <div class="skill-list">
+                        <span class="skill-item">Financial Reporting</span>
+                        <span class="skill-item">Tally ERP 9 & TallyPrime</span>
+                        <span class="skill-item">MS Excel (Advanced)</span>
+                        <span class="skill-item">GST Compliance</span>
+                        <span class="skill-item">TDS Filing</span>
+                        <span class="skill-item">Bookkeeping & General Ledger</span>
+                        <span class="skill-item">Accounts Payable (AP)</span>
+                        <span class="skill-item">Accounts Receivable (AR)</span>
+                        <span class="skill-item">Bank Reconciliation</span>
+                        <span class="skill-item">Auditing</span>
+                        <span class="skill-item">Budgeting & Forecasting</span>
+                        
+                        <span class="skill-item">Attention to Detail</span>
+                        <span class="skill-item">Problem-Solving</span>
+                        <span class="skill-item">Time Management</span>
+                        <span class="skill-item">Ethical Conduct</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="card">
+                    <div class="contact-methods">
+                        <p>I'm open to new opportunities and collaborations. Feel free to reach out.</p>
+                        <div class="contact-item">
+                            <strong>Email:</strong> <a href="mailto:[pragatheeswari.r@email.com]">[pragatheeswari.r@email.com]</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Phone:</strong> <a href="tel:[+919876543210]">[+91 98765 43210]</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>LinkedIn:</strong> <a href="[https://linkedin.com/in/your-profile-url]" target="_blank">[linkedin.com/in/your-profile-url]</a>
+                        </div>
+                        
+                        </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Pragatheeswari R. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
